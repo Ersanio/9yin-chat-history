@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FileHandle } from './drag-drop.directive';
+import { ChatHistory } from './Models/chathistory';
+import { ChatmapperService } from './Services/chatmapper.service';
+import { ChatparserService } from './Services/chatparser.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'chathistory';
+  public files: FileHandle[] = [];
+  public chatHistory: ChatHistory;
+
+  public selectedChat: string;
+
+  constructor(
+    private chatParser: ChatparserService,
+    private chatMapper: ChatmapperService) {
+  }
+
+  ngOnInit(): void {
+  }
+
+  async onFilesDropped(files: FileHandle[]): Promise<void> {
+    this.files = files;
+    const xmlHistory = await this.chatParser.parseXmlChatLog(this.files[0]);
+    this.chatHistory = this.chatMapper.AnyToChat(xmlHistory);
+  }
 }
