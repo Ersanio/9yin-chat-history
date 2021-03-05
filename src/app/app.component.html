@@ -1,29 +1,26 @@
-<span class="test">aaaaaaa</span>
-
 <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDragDrop (files)="onFilesDropped($event)">
   <div class="text-wrapper">
     <div class="centered">Drop your file here!</div>
   </div>
 </div>
 
-<div class="container test">
+<div class="container">
   <div class="row">
-
-    <div class="col-md-2">
+    <div class="col-md-2 peoplelist">
       <div class="list-group">
       <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
         <ng-container *ngFor="let record of chatHistory.chatRecords;">
-          <a href="#" class="list-group-item list-group-item-action waves-light" mdbWavesEffect>{{record.chatName}}</a>
+          <a href="#" class="list-group-item list-group-item-action waves-light" mdbWavesEffect>{{record.chatName}}</a><br />
         </ng-container>
       </ng-container>
       </div>
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-10 chatwindow">
       <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
         <ng-container *ngFor="let record of chatHistory.chatRecords;">
           <ng-container *ngFor="let message of record.chatMessages">
-            <span>[{{message.timestamp}}] &lt;{{message.from}}&gt; </span><span [innerHTML]="message.message"></span><br />
+            <span class="timestamp">[{{message.timestamp}}]</span>&nbsp;<span class="name">&lt;{{message.from}}&gt;</span>&nbsp;<span [innerHTML]="message.message"></span><br />
           </ng-container>
         </ng-container>
       </ng-container>

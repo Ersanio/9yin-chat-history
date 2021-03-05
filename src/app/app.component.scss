@@ -1,4 +1,36 @@
-.test
+// https://stackoverflow.com/a/36265072
+
+// People list
+div.peoplelist {
+  background-color: #2F2E2C;
+
+  .selected {
+    background-color: #34312C;
+  }
+
+  a:link, a:visited, a:hover, a:active {
+    color: #AC9B89;
+  }
+}
+
+// Chat window
+div.chatwindow {
+  text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
+  background-color: #141414;
+  color: #CECBC6;
+
+
+  span.name {
+    color: #EA77A5;
+  }
+
+  span.timestamp {
+    color: #FFA523;
+  }
+}
+
+// Dynamically generated chatlog HTML
+:host ::ng-deep .item
 {
   color:red;
 }
