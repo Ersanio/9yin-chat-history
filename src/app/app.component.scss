@@ -1,5 +1,3 @@
-// https://stackoverflow.com/a/36265072
-
 // People list
 div.peoplelist {
   background-color: #2F2E2C;
@@ -25,10 +23,13 @@ div.chatwindow {
   }
 
   span.timestamp {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     color: #FFA523;
   }
 }
 
+// https://stackoverflow.com/a/36265072
 // Dynamically generated chatlog HTML
 :host ::ng-deep .item
 {
