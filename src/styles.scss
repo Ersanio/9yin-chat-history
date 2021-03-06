@@ -1,1 +1,7 @@
 @import "skeleton-scss/skeleton";
+@import "variables";
+
+
+body {
+  background-color: $color-primary-4;
+}

@@ -1,10 +1,11 @@
+@import "../variables";
+
 // People list
 div.peoplelist {
-  background-color: #2F2E2C;
+  background-color: $color-primary-3;
 
-  .selected {
-    background-color: #34312C;
-  }
+  max-height: 100vh;
+  overflow-y: scroll;
 
   a:link, a:visited, a:hover, a:active {
     color: #AC9B89;
@@ -14,18 +15,15 @@ div.peoplelist {
 // Chat window
 div.chatwindow {
   text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
-  background-color: #141414;
-  color: #CECBC6;
-
+  background-color: $color-primary-0;
+  color: $color-chat-text;
 
   span.name {
-    color: #EA77A5;
+    color: $color-name-text;
   }
 
   span.timestamp {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    color: #FFA523;
+    color: $color-timestamp-text;
   }
 }
 
@@ -33,5 +31,5 @@ div.chatwindow {
 // Dynamically generated chatlog HTML
 :host ::ng-deep .item
 {
-  color:red;
+  color: $color-name-text
 }

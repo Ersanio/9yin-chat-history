@@ -1,22 +1,17 @@
-<div *ngIf="!files.length" class="col-12 rmpm dropzone" appDragDrop (files)="onFilesDropped($event)">
-  <div class="text-wrapper">
-    <div class="centered">Drop your file here!</div>
-  </div>
+<div *ngIf="!files.length" appDragDrop (files)="onFilesDropped($event)">
+  Drop your file here!
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-2 peoplelist">
-      <div class="list-group">
+    <div class="two columns peoplelist">
       <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
         <ng-container *ngFor="let record of chatHistory.chatRecords;">
-          <a href="#" class="list-group-item list-group-item-action waves-light" mdbWavesEffect>{{record.chatName}}</a><br />
+          <a href="#">{{record.chatName}}</a><br />
         </ng-container>
       </ng-container>
-      </div>
     </div>
-
-    <div class="col-md-10 chatwindow">
+    <div class="ten columns chatwindow">
       <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
         <ng-container *ngFor="let record of chatHistory.chatRecords;">
           <ng-container *ngFor="let message of record.chatMessages">
