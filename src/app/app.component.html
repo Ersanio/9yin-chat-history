@@ -4,19 +4,18 @@
 
 <div class="container">
   <div class="row">
-    <div class="two columns peoplelist">
+    <div class="two columns viewport peoplelist">
       <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
         <ng-container *ngFor="let record of chatHistory.chatRecords;">
-          <a href="#">{{record.chatName}}</a><br />
+          <a href="#" (click)="selectChat(record.chatName)">{{record.chatName}}</a><br />
         </ng-container>
       </ng-container>
     </div>
-    <div class="ten columns chatwindow">
+    <div class="ten columns viewport chatwindow">
       <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
-        <ng-container *ngFor="let record of chatHistory.chatRecords;">
-          <ng-container *ngFor="let message of record.chatMessages">
-            <span class="timestamp">[{{message.timestamp}}]</span>&nbsp;<span class="name">&lt;{{message.from}}&gt;</span>&nbsp;<span [innerHTML]="message.message"></span><br />
-          </ng-container>
+        <span>Current chat: {{selectedChat}}</span><br />
+        <ng-container *ngFor="let message of chatHistory.chatRecords | messagesFrom:selectedChat">
+          <span class="timestamp">[{{message.timestamp}}]</span>&nbsp;<span class="name">&lt;{{message.from}}&gt;</span>&nbsp;<span [innerHTML]="message.message"></span><br />
         </ng-container>
       </ng-container>
     </div>

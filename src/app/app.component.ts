@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FileHandle } from './drag-drop.directive';
-import { ChatHistory } from './Models/chathistory';
+import { ChatHistory, ChatRecord } from './Models/chathistory';
 import { ChatmapperService } from './Services/chatmapper.service';
 import { ChatparserService } from './Services/chatparser.service';
 
@@ -27,5 +27,9 @@ export class AppComponent {
     this.files = files;
     const xmlHistory = await this.chatParser.parseXmlChatLog(this.files[0]);
     this.chatHistory = this.chatMapper.AnyToChat(xmlHistory);
+  }
+
+  selectChat(name: string) {
+    this.selectedChat = name;
   }
 }

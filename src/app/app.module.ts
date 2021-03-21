@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DragDropDirective } from './drag-drop.directive';
+import { MessagesFromPipe } from './Pipes/messages-from.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DragDropDirective
+    DragDropDirective,
+    MessagesFromPipe
   ],
   imports: [
     BrowserModule
