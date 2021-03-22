@@ -6,6 +6,6 @@ import { ChatMessage, ChatRecord } from '../Models/chathistory';
 })
 export class MessagesFromPipe implements PipeTransform {
   transform(chatRecords: ChatRecord[], selectedChat: string): ChatMessage[] {
-    return chatRecords.find(x => x.chatName == selectedChat).chatMessages;
+    return chatRecords.find(x => x.chatName == selectedChat)?.chatMessages;
   }
 }
