@@ -1,4 +1,5 @@
-# Chathistory
+# 9yin chat history
+9yin chat history is a web application for viewing one's chatlogs in Age of Wushu, a free-to-play 3D martial arts action MMORPG, developed by Snail Games. The project makes use of a custom base64 decoding scheme, as described in [Ersanio's blog post](https://blog.ersan.io/2020/12/30/cracking-age-of-wushus-chat-log-encoding/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 

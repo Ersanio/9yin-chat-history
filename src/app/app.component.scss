@@ -1,33 +1,74 @@
 @import "../variables";
 
 div.viewport {
-  max-height: 100vh;
-  overflow-y: scroll;
-}
-
-// People list
-div.peoplelist {
-  background-color: $color-primary-3;
-
-  a:link, a:visited, a:hover, a:active {
-    color: #AC9B89;
-  }
-}
-
-// Chat window
-div.chatwindow {
-  text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
-  background-color: $color-primary-0;
   color: $color-chat-text;
 
-  span.name {
-    color: $color-name-text;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+
+  div.peoplelist {
+    cursor: default;
+    background-color: #211F1E;
+
+    order: 0;
+    flex: 1 0 350px;
+    max-height: 100vh;
+    overflow-y: scroll;
+
+    div.name {
+      padding-left:16px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      font-weight:bold;
+    }
+
+    div.name:hover, div.name:active {
+      background-color:#2B2A24;
+    }
+
+    // selected = 38362F
   }
 
-  span.timestamp {
-    color: $color-timestamp-text;
+  div.chatwindow {
+    text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
+    background-color: #282723;
+
+    div.chatpadding {
+      padding-left: 16px;
+    }
+
+    order: 1;
+    flex: 7 0 450px;
+    max-height: 100vh;
+    overflow-y: scroll;
+
+    span.name {
+      color: $color-name-text;
+      font-weight: bold;
+    }
+
+    span.timestamp {
+      font-size: 0.8em;
+      color: $color-timestamp-text;
+    }
+
+    div.currentchat {
+      background-color: #524D47;
+      color: #DDDCDC;
+      position: sticky;
+      top: 0;
+      text-align: center;
+    }
+
+    div.chatrow {
+      min-height:32px;
+      padding-left: 5px;
+    }
   }
 }
+
 
 // https://stackoverflow.com/a/36265072
 // Dynamically generated chatlog HTML

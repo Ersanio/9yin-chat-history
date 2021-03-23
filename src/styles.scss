@@ -1,5 +1,22 @@
 @import "variables";
+@import "normalize";
 
 body {
-  background-color: $color-primary-4;
+  background-color: #282723;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #22211D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #080703;
 }
