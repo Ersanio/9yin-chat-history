@@ -31,8 +31,9 @@ jobs:
       - name: Copy folder content recursively to remote via SSH
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: "dist/angular-githubaction"
+          local: "dist/chathistory"
           remote: ${{ secrets.REMOTE_TARGET }}
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_SSH_KEY }}
+          rmRemote: true # clean remote directory
