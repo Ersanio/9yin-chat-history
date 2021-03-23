@@ -1,0 +1,38 @@
+name: Build Angular
+
+on:
+  create:
+    branches:
+      - 'release/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install and npm run build
+        run: |
+          npm i
+          npm run build:prod
+      - name: Copy folder content recursively to remote via SSH
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: "dist/angular-githubaction"
+          remote: ${{ secrets.REMOTE_TARGET }}
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_SSH_KEY }}
