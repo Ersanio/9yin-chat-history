@@ -1,8 +1,6 @@
 @import "../variables";
 
 div.viewport {
-  color: $color-chat-text;
-
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -16,76 +14,14 @@ div.viewport {
     flex: 1 0 350px;
     max-height: 100vh;
     overflow-y: scroll;
-
-    div.namepadding {
-      padding-left:16px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      font-weight:bold;
-      user-select: none;
-    }
-
-    div.name {
-      background-color: inherit;
-      color: inherit;
-    }
-
-    div.name:hover, div.name:active {
-      background-color:#2B2A24;
-    }
-
-    div.selectedname {
-      background-color: #38362F;
-      color: #EAE7E3;
-    }
   }
 
   div.chatwindow {
     text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
     background-color: #282723;
-
-    div.chatpadding {
-      padding-left: 16px;
-    }
-
     order: 1;
     flex: 7 0 450px;
     max-height: 100vh;
     overflow-y: scroll;
-
-    span.name {
-      color: $color-name-text;
-      font-weight: bold;
-    }
-
-    span.timestamp {
-      font-size: 0.8em;
-      color: $color-timestamp-text;
-    }
-
-    div.currentchat {
-      background-color: #524D47;
-      color: #DDDCDC;
-      position: sticky;
-      top: 0;
-      text-align: center;
-    }
-
-    div.chatmessage:hover {
-      background-color: #24231F;
-    }
-
-    div.chatrow {
-      min-height:32px;
-      padding-left: 5px;
-    }
   }
-}
-
-
-// https://stackoverflow.com/a/36265072
-// Dynamically generated chatlog HTML
-:host ::ng-deep .item
-{
-  color: $color-name-text
 }

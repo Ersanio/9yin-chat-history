@@ -1,33 +1,9 @@
-<div *ngIf="!files.length" appDragDrop (files)="onFilesDropped($event)">
-  Drop your file here!
-</div>
-
+<app-drag-drop (files)="onFilesDropped($event)"></app-drag-drop>
 <div class="viewport">
   <div class="peoplelist">
-    <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
-      <ng-container *ngFor="let record of chatHistory.chatRecords;">
-        <div [class]="selectedChat === record.chatName ? 'selectedname' : 'name'"
-          (click)="selectChat(record.chatName)">
-          <div class="namepadding">{{record.chatName}}</div>
-        </div>
-      </ng-container>
-    </ng-container>
+    <app-people-list [records]="chatHistory?.chatRecords" (selectedChat)="onSelectedChatChange($event)"></app-people-list>
   </div>
   <div class="chatwindow">
-    <ng-container *ngIf="chatHistory?.chatRecords != undefined;">
-      <div class="currentchat">
-        <ng-container *ngIf="selectedChat != undefined;">{{selectedChat}} - Conversation</ng-container>
-      </div>
-      <ng-container *ngFor="let message of chatHistory.chatRecords | messagesFrom:selectedChat">
-        <div class="chatmessage">
-          <div class="chatpadding">
-            <div>
-              <span class="name">{{message.from}}</span><span class="timestamp"> on {{message.timestamp}}</span>
-            </div>
-            <div class="chatrow" [innerHTML]="message.message"></div>
-          </div>
-        </div>
-      </ng-container>
-    </ng-container>
+    <app-chat-records [records]="chatHistory?.chatRecords" [selectedChat]="selectedChat"></app-chat-records>
   </div>
 </div>

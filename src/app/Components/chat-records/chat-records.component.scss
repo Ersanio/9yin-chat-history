@@ -1,0 +1,39 @@
+@import "../../../variables";
+
+div.chatpadding {
+  padding-left: 16px;
+}
+
+span.name {
+  color: $color-name-text;
+  font-weight: bold;
+}
+
+span.timestamp {
+  font-size: 0.8em;
+  color: $color-timestamp-text;
+}
+
+div.currentchat {
+  background-color: #524D47;
+  color: #DDDCDC;
+  position: sticky;
+  top: 0;
+  text-align: center;
+}
+
+div.chatmessage:hover {
+  background-color: #24231F;
+}
+
+div.chatrow {
+  min-height:32px;
+  padding-left: 5px;
+}
+
+// https://stackoverflow.com/a/36265072
+// Dynamically generated chatlog HTML
+:host ::ng-deep .item
+{
+  color: $color-name-text
+}

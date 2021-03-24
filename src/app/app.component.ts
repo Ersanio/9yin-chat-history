@@ -10,7 +10,6 @@ import { ChatparserService } from './Services/chatparser.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public files: FileHandle[] = [];
   public chatHistory: ChatHistory;
 
   public selectedChat: string;
@@ -24,12 +23,11 @@ export class AppComponent {
   }
 
   async onFilesDropped(files: FileHandle[]): Promise<void> {
-    this.files = files;
-    const xmlHistory = await this.chatParser.parseXmlChatLog(this.files[0]);
+    const xmlHistory = await this.chatParser.parseXmlChatLog(files[0]);
     this.chatHistory = this.chatMapper.AnyToChat(xmlHistory);
   }
 
-  selectChat(name: string) {
+  onSelectedChatChange(name: string) {
     this.selectedChat = name;
   }
 }

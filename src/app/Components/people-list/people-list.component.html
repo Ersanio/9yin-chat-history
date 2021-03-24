@@ -1,0 +1,7 @@
+<ng-container *ngIf="records != undefined;">
+  <ng-container *ngFor="let record of records;">
+    <div [class]="selectedChatName === record.chatName ? 'selectedname' : 'name'" (click)="selectChat(record.chatName)">
+      <div class="namepadding">{{record.chatName}}</div>
+    </div>
+  </ng-container>
+</ng-container>

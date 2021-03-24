@@ -1,0 +1,18 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { ChatRecord } from 'src/app/Models/chathistory';
+
+@Component({
+  selector: 'app-chat-records',
+  templateUrl: './chat-records.component.html',
+  styleUrls: ['./chat-records.component.scss']
+})
+export class ChatRecordsComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  @Input() public records : ChatRecord[];
+  @Input() public selectedChat : string;
+}
