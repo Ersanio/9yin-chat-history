@@ -17,18 +17,27 @@ div.viewport {
     max-height: 100vh;
     overflow-y: scroll;
 
-    div.name {
+    div.namepadding {
       padding-left:16px;
       padding-top: 4px;
       padding-bottom: 4px;
       font-weight:bold;
+      user-select: none;
+    }
+
+    div.name {
+      background-color: inherit;
+      color: inherit;
     }
 
     div.name:hover, div.name:active {
       background-color:#2B2A24;
     }
 
-    // selected = 38362F
+    div.selectedname {
+      background-color: #38362F;
+      color: #EAE7E3;
+    }
   }
 
   div.chatwindow {
@@ -60,6 +69,10 @@ div.viewport {
       position: sticky;
       top: 0;
       text-align: center;
+    }
+
+    div.chatmessage:hover {
+      background-color: #24231F;
     }
 
     div.chatrow {
