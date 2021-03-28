@@ -11,7 +11,6 @@ import { ChatparserService } from './Services/chatparser.service';
 })
 export class AppComponent {
   public chatHistory: ChatHistory;
-
   public selectedChat: string;
 
   constructor(

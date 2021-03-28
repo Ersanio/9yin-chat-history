@@ -1,5 +1,5 @@
 <app-drag-drop (files)="onFilesDropped($event)"></app-drag-drop>
-<div class="viewport">
+<div class="flexcontainer" *ngIf="chatHistory != undefined">
   <div class="peoplelist">
     <app-people-list [records]="chatHistory?.chatRecords" (selectedChat)="onSelectedChatChange($event)"></app-people-list>
   </div>
