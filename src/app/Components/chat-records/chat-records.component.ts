@@ -15,4 +15,8 @@ export class ChatRecordsComponent implements OnInit {
 
   @Input() public records : ChatRecord[];
   @Input() public selectedChat : string;
+
+  getCurrentRecord() {
+    return this.records.find(x => x.chatName === this.selectedChat)?.chatMessages;
+  }
 }

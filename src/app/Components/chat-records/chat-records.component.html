@@ -2,7 +2,7 @@
   <div class="currentchat">
     <ng-container *ngIf="selectedChat != undefined;">{{selectedChat}} - Conversation</ng-container>
   </div>
-  <ng-container *ngFor="let message of records | messagesFrom:selectedChat">
+  <ng-container *ngFor="let message of getCurrentRecord()">
     <div class="chatmessage">
       <div class="chatpadding">
         <div>
