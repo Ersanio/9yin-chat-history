@@ -2,11 +2,12 @@
 @import "normalize";
 
 body {
-  background-color: #282723;
+  background-color: #1A1717;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $color-chat-text;
+  text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
 }
 
 ::-webkit-scrollbar {

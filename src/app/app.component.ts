@@ -30,7 +30,7 @@ export class AppComponent {
 
   async onFilesDropped(files: FileHandle[]): Promise<void> {
     const xmlHistory = await this.chatParser.parseXmlChatLog(files[0]);
-    this.chatHistory = this.chatMapper.AnyToChat(xmlHistory);
+    this.chatHistory = this.chatMapper.AnyToChat(xmlHistory, files[0].file.name);
   }
 
   onSelectedChatChange(name: string) {
@@ -38,6 +38,14 @@ export class AppComponent {
   }
 
   public downloadAll() {
+    console.log(this.chatHistory);
+  }
+
+  public downloadCurrent() {
+    console.log(this.chatHistory.chatRecords.find(x => x.chatName === this.selectedChat));
+  }
+
+  public displayAbout() {
     console.log("downloading...");
   }
 }

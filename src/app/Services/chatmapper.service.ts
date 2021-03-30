@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Console } from 'console';
 import { ChatHistory, ChatMessage, ChatRecord } from '../Models/chathistory';
 import { Base64decoderService } from './base64decoder.service';
 
@@ -9,8 +8,9 @@ import { Base64decoderService } from './base64decoder.service';
 export class ChatmapperService {
   constructor(private base64decoder: Base64decoderService) { }
 
-  public AnyToChat(xmlInput: any): ChatHistory {
+  public AnyToChat(xmlInput: any, fileName: string): ChatHistory {
     var history = new ChatHistory();
+    history.recordOwner = this.base64decoder.decode(fileName.split(".")[0]);
     history.chatRecords = [];
 
     if (Symbol.iterator in Object(xmlInput.Records.Record)) {

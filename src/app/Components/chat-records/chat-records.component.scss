@@ -14,12 +14,12 @@ span.timestamp {
   color: $color-timestamp-text;
 }
 
-div.currentchat {
+header.currentchat {
   background-color: #524D47;
   color: #DDDCDC;
-  position: sticky;
   top: 0;
   text-align: center;
+  position: sticky;
 }
 
 div.chatmessage:hover {

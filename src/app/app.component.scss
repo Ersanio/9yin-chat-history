@@ -1,47 +1,64 @@
 @import "../variables";
 
-div.menu {
-  position: fixed;
-  top: 42px;
-  right: 32px;
-  text-align: right;
-  border-radius: 25px;
-  background-color: #222;
-  padding: 10px;
-  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-  opacity: 0.2;
+$large-window-padding-vertical: 19px;
+$menu-height: 50px;
+$app-window-width: 1396px;
 
-  fa-icon {
-    padding: 0 5px;
-  }
-}
+div.viewport {
+  position: relative;
+  top: 0;
 
-div.menu:hover {
-  opacity: 1;
-}
-
-div.flexcontainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: stretch;
-
-  div.peoplelist {
-    cursor: default;
-    background-color: #211F1E;
-
-    order: 0;
-    flex: 30%;
-    max-height: 100vh;
-    overflow-y: scroll;
-  }
-
-  div.chatwindow {
-    text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
+  div.window {
     background-color: #282723;
-    order: 1;
-    flex: 70%;
-    max-height: 100vh;
-    overflow-y: scroll;
+
+    div.menu {
+      height: $menu-height;
+      background-color: #12100E;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      fa-icon {
+        padding: 0 10px;
+        cursor: pointer;
+      }
+    }
+
+    div.flex {
+      display: flex;
+      height: calc(100vh - #{$menu-height});
+
+      div.peoplelist {
+        cursor: default;
+        background-color: #211F1E;
+        order: 0;
+        flex: 30%;
+        overflow-y: auto;
+      }
+
+      div.chatwindow {
+        order: 1;
+        flex: 70%;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  div.viewport {
+    top: $large-window-padding-vertical;
+    height: calc(100vh - calc(#{$large-window-padding-vertical}*2));
+  }
+
+  div.window {
+    margin: 0 auto;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.06),0 2px 5px 0 rgba(0,0,0,.2);
+    width: $app-window-width;
+  }
+
+  div.viewport div.window div.flex {
+    height: calc(100vh - calc(#{$large-window-padding-vertical}*2) - #{$menu-height});
   }
 }

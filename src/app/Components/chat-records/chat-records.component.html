@@ -1,6 +1,6 @@
-<div class="currentchat">
+<header class="currentchat">
   <ng-container *ngIf="selectedChat != undefined;">{{selectedChat}} - Conversation</ng-container>
-</div>
+</header>
 <div class="chatmessage" *ngFor="let message of getCurrentRecord()">
   <div class="chatpadding">
       <span class="name">{{message.from}}</span><span class="timestamp"> on {{message.timestamp}}</span>
