@@ -1,5 +1,25 @@
 @import "../variables";
 
+div.menu {
+  position: fixed;
+  top: 42px;
+  right: 32px;
+  text-align: right;
+  border-radius: 25px;
+  background-color: #222;
+  padding: 10px;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+  opacity: 0.2;
+
+  fa-icon {
+    padding: 0 5px;
+  }
+}
+
+div.menu:hover {
+  opacity: 1;
+}
+
 div.flexcontainer {
   display: flex;
   flex-flow: row wrap;
@@ -11,7 +31,7 @@ div.flexcontainer {
     background-color: #211F1E;
 
     order: 0;
-    flex: 1 0 350px;
+    flex: 30%;
     max-height: 100vh;
     overflow-y: scroll;
   }
@@ -20,7 +40,7 @@ div.flexcontainer {
     text-shadow: 1px 1px 0px rgba(6, 6, 6, 1);
     background-color: #282723;
     order: 1;
-    flex: 7 0 450px;
+    flex: 70%;
     max-height: 100vh;
     overflow-y: scroll;
   }

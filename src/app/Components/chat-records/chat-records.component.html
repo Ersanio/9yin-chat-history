@@ -3,9 +3,7 @@
 </div>
 <div class="chatmessage" *ngFor="let message of getCurrentRecord()">
   <div class="chatpadding">
-    <div>
       <span class="name">{{message.from}}</span><span class="timestamp"> on {{message.timestamp}}</span>
-    </div>
     <div class="chatrow" [innerHTML]="message.message"></div>
   </div>
 </div>

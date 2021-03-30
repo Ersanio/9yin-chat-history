@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { FileHandle } from './drag-drop.directive';
-import { ChatHistory, ChatRecord } from './Models/chathistory';
+import { ChatHistory } from './Models/chathistory';
 import { ChatmapperService } from './Services/chatmapper.service';
 import { ChatparserService } from './Services/chatparser.service';
+
+import { faDownload, faFileDownload, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +13,10 @@ import { ChatparserService } from './Services/chatparser.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public faDownload = faDownload;
+  public faAbout = faQuestionCircle;
+  public faFileDownload = faFileDownload;
+
   public chatHistory: ChatHistory;
   public selectedChat: string;
 
@@ -28,5 +35,9 @@ export class AppComponent {
 
   onSelectedChatChange(name: string) {
     this.selectedChat = name;
+  }
+
+  public downloadAll() {
+    console.log("downloading...");
   }
 }
