@@ -1,6 +1,6 @@
 @import "../../../variables";
 
-div.chatpadding {
+div.left-padding {
   padding-left: 16px;
 }
 
@@ -14,19 +14,23 @@ span.timestamp {
   color: $color-timestamp-text;
 }
 
-header.currentchat {
-  background-color: #524D47;
-  color: #DDDCDC;
+header.current-chat {
+  background-color: $bg-color-chat-top-bar;
+  color: $color-chat-top-bar;
   top: 0;
   text-align: center;
   position: sticky;
 }
 
-div.chatmessage:hover {
-  background-color: #24231F;
+div.chat-message {
+  background-color: $bg-color-chat-message;
 }
 
-div.chatrow {
+div.chat-message:hover {
+  background-color: $bg-color-chat-message-hover;
+}
+
+div.chat-row {
   min-height:32px;
   padding-left: 5px;
 }

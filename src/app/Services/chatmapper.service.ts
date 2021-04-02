@@ -10,7 +10,7 @@ export class ChatmapperService {
 
   public AnyToChat(xmlInput: any, fileName: string): ChatHistory {
     var history = new ChatHistory();
-    history.recordOwner = this.base64decoder.decode(fileName.split(".")[0]);
+    history.recordOwner = this.base64decoder.decode(fileName.split(".")[0].split(" ")[0]);
     history.chatRecords = [];
 
     if (Symbol.iterator in Object(xmlInput.Records.Record)) {

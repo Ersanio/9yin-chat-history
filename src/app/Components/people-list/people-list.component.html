@@ -1,4 +1,4 @@
-<div *ngFor="let record of records;" [class]="selectedChatName === record.chatName ? 'selectedname' : 'name'"
+<div *ngFor="let record of records;" [class]="selectedChatName === record.chatName ? 'name-selected' : 'name'"
   (click)="selectChat(record.chatName)">
-  <div class="namepadding">{{record.chatName}}</div>
+  <div class="name-padding">{{record.chatName}}</div>
 </div>

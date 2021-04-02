@@ -10,11 +10,11 @@
         <fa-icon title="About" size="2x" [icon]="faAbout" (click)="displayAbout();"></fa-icon>
       </div>
       <div class="flex">
-        <div class="peoplelist">
+        <div class="name-list">
           <app-people-list [records]="chatHistory?.chatRecords" (selectedChat)="onSelectedChatChange($event)">
           </app-people-list>
         </div>
-        <div class="chatwindow">
+        <div class="chat-window">
           <app-chat-records [records]="chatHistory?.chatRecords" [selectedChat]="selectedChat"></app-chat-records>
         </div>
       </div>

@@ -1,19 +1,15 @@
 @import "../variables";
 
-$large-window-padding-vertical: 19px;
-$menu-height: 50px;
-$app-window-width: 1396px;
-
 div.viewport {
   position: relative;
   top: 0;
 
   div.window {
-    background-color: #282723;
+    background-color: $bg-color-main-window;
 
     div.menu {
       height: $menu-height;
-      background-color: #12100E;
+      background-color: $bg-color-menu-bar;
       text-align: right;
       display: flex;
       align-items: center;
@@ -29,15 +25,15 @@ div.viewport {
       display: flex;
       height: calc(100vh - #{$menu-height});
 
-      div.peoplelist {
+      div.name-list {
         cursor: default;
-        background-color: #211F1E;
+        background-color: $bg-color-name-list;
         order: 0;
         flex: 30%;
         overflow-y: auto;
       }
 
-      div.chatwindow {
+      div.chat-window {
         order: 1;
         flex: 70%;
         overflow-y: auto;

@@ -1,9 +1,9 @@
-<header class="currentchat">
+<header class="current-chat">
   <ng-container *ngIf="selectedChat != undefined;">{{selectedChat}} - Conversation</ng-container>
 </header>
-<div class="chatmessage" *ngFor="let message of getCurrentRecord()">
-  <div class="chatpadding">
+<div class="chat-message" *ngFor="let message of getCurrentRecord()">
+  <div class="left-padding">
       <span class="name">{{message.from}}</span><span class="timestamp"> on {{message.timestamp}}</span>
-    <div class="chatrow" [innerHTML]="message.message"></div>
+    <div class="chat-row" [innerHTML]="message.message"></div>
   </div>
 </div>
