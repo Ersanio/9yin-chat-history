@@ -3,9 +3,8 @@ import { FileHandle } from './drag-drop.directive';
 import { ChatHistory } from './Models/chathistory';
 import { ChatmapperService } from './Services/chatmapper.service';
 import { ChatparserService } from './Services/chatparser.service';
-
+import { DownloadService } from './Services/download.service';
 import { faDownload, faFileDownload, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-
 
 @Component({
   selector: 'app-root',
@@ -22,7 +21,8 @@ export class AppComponent {
 
   constructor(
     private chatParser: ChatparserService,
-    private chatMapper: ChatmapperService) {
+    private chatMapper: ChatmapperService,
+    private downloadService: DownloadService) {
   }
 
   ngOnInit(): void {
@@ -38,14 +38,15 @@ export class AppComponent {
   }
 
   public downloadAll() {
-    console.log(this.chatHistory);
+    this.downloadService.downloadJson(this.chatHistory, `${this.chatHistory.recordOwner}.json`);
   }
 
   public downloadCurrent() {
-    console.log(this.chatHistory.chatRecords.find(x => x.chatName === this.selectedChat));
+    const selectedChat = this.chatHistory.chatRecords.find(x => x.chatName === this.selectedChat);
+    this.downloadService.downloadJson(selectedChat, `${this.chatHistory.recordOwner}_${selectedChat.chatName}.json`);
   }
 
   public displayAbout() {
-    console.log("downloading...");
+    alert('aaaa');
   }
 }

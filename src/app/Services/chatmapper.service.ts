@@ -10,7 +10,7 @@ export class ChatmapperService {
 
   public AnyToChat(xmlInput: any, fileName: string): ChatHistory {
     var history = new ChatHistory();
-    history.recordOwner = this.base64decoder.decode(fileName.split(".")[0].split(" ")[0]);
+    history.recordOwner = this.getRecordOwner(fileName);
     history.chatRecords = [];
 
     if (Symbol.iterator in Object(xmlInput.Records.Record)) {
@@ -58,5 +58,14 @@ export class ChatmapperService {
 
     content = content.replace(new RegExp(/<a .*><(.*)><\/a>/g), '<span class="item">&lt;$1&gt;</span>'); // replace item links
     return content;
+  }
+
+  getRecordOwner(fileName: string): string {
+    try {
+      return this.base64decoder.decode(fileName.split(".")[0].split(" ")[0]);
+    }
+    catch {
+      return fileName.split(".")[0];
+    }
   }
 }

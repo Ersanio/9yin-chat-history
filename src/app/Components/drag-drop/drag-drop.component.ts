@@ -7,9 +7,6 @@ import { FileHandle } from 'src/app/drag-drop.directive';
   styleUrls: ['./drag-drop.component.scss']
 })
 export class DragDropComponent implements OnInit {
-
-  constructor() { }
-
   @Output() public files = new EventEmitter<FileHandle[]>();
   public isVisible: boolean;
 

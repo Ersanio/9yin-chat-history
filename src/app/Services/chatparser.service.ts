@@ -20,6 +20,4 @@ export class ChatparserService {
     const text = await fileHandle.file.text();
     return parser.parse(text, options);
   }
-
-  constructor() { }
 }

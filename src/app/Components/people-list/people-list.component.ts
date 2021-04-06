@@ -6,13 +6,7 @@ import { ChatRecord } from 'src/app/Models/chathistory';
   templateUrl: './people-list.component.html',
   styleUrls: ['./people-list.component.scss']
 })
-export class PeopleListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class PeopleListComponent {
   @Input() public records: ChatRecord[];
   @Output() public selectedChat = new EventEmitter<string>();
 

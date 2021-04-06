@@ -23,8 +23,6 @@ export class Base64decoderService {
     "g": "8", "y": "9", "[": "+", "+": "/",
   };
 
-  constructor() { }
-
   /**
    * Decodes base64 to UTF-8.
    * @param input The base64 string to decode.

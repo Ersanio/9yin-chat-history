@@ -1,14 +1,14 @@
 <div class="viewport">
   <div class="window">
+    <div class="menu">
+      <fa-icon title="Download current" size="2x" [icon]="faDownload" (click)="downloadCurrent();"
+        *ngIf="chatHistory !== undefined && selectedChat"></fa-icon>
+      <fa-icon title="Download all" size="2x" [icon]="faFileDownload" (click)="downloadAll();"
+        *ngIf="chatHistory !== undefined"></fa-icon>
+      <fa-icon title="About" size="2x" [icon]="faAbout" (click)="displayAbout();"></fa-icon>
+    </div>
     <app-drag-drop (files)="onFilesDropped($event)"></app-drag-drop>
     <ng-container *ngIf="chatHistory !== undefined">
-      <div class="menu">
-        <fa-icon title="Download current" size="2x" [icon]="faDownload" (click)="downloadCurrent();"
-          *ngIf="chatHistory !== undefined && selectedChat"></fa-icon>
-        <fa-icon title="Download all" size="2x" [icon]="faFileDownload" (click)="downloadAll();"
-          *ngIf="chatHistory !== undefined"></fa-icon>
-        <fa-icon title="About" size="2x" [icon]="faAbout" (click)="displayAbout();"></fa-icon>
-      </div>
       <div class="flex">
         <div class="name-list">
           <app-people-list [records]="chatHistory?.chatRecords" (selectedChat)="onSelectedChatChange($event)">

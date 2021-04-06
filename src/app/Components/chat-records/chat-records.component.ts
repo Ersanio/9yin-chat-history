@@ -6,13 +6,7 @@ import { ChatRecord } from 'src/app/Models/chathistory';
   templateUrl: './chat-records.component.html',
   styleUrls: ['./chat-records.component.scss']
 })
-export class ChatRecordsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class ChatRecordsComponent {
   @Input() public records : ChatRecord[];
   @Input() public selectedChat : string;
 
