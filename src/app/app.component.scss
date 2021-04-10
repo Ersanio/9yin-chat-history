@@ -7,20 +7,6 @@ div.viewport {
   div.window {
     background-color: $bg-color-main-window;
 
-    div.menu {
-      height: $menu-height;
-      background-color: $bg-color-menu-bar;
-      text-align: right;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      fa-icon {
-        padding: 0 10px;
-        cursor: pointer;
-      }
-    }
-
     div.flex {
       display: flex;
       height: calc(100vh - #{$menu-height});

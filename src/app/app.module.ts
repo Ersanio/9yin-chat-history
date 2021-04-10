@@ -7,6 +7,7 @@ import { DragDropDirective } from './drag-drop.directive';
 import { DragDropComponent } from './Components/drag-drop/drag-drop.component';
 import { PeopleListComponent } from './Components/people-list/people-list.component';
 import { ChatRecordsComponent } from './Components/chat-records/chat-records.component';
+import { MenubarComponent } from './Components/menubar/menubar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ChatRecordsComponent } from './Components/chat-records/chat-records.com
     DragDropDirective,
     DragDropComponent,
     PeopleListComponent,
-    ChatRecordsComponent
+    ChatRecordsComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,

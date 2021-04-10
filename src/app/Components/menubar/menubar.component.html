@@ -1,0 +1,7 @@
+<div class="menu">
+  <fa-icon title="Download current" size="2x" [icon]="faDownload" (click)="downloadCurrent();"
+    *ngIf="chatHistory?.chatRecords !== undefined && selectedChat"></fa-icon>
+  <fa-icon title="Download all" size="2x" [icon]="faFileDownload" (click)="downloadAll();"
+    *ngIf="chatHistory !== undefined"></fa-icon>
+  <fa-icon title="About" size="2x" [icon]="faAbout" (click)="displayAbout();"></fa-icon>
+</div>

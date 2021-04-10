@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+div.menu {
+  height: $menu-height;
+  background-color: $bg-color-menu-bar;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  fa-icon {
+    padding: 0 10px;
+    cursor: pointer;
+  }
+}
