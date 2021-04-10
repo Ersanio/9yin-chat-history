@@ -1,0 +1,60 @@
+@import "../../../variables";
+
+app-modal {
+  display: none;
+
+  fa-icon.close {
+    float: right;
+    cursor: pointer;
+  }
+
+  .app-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    overflow: auto;
+
+    display: grid;
+    place-items: center;
+
+    .app-modal-body {
+      z-index: 300;
+      max-width: 400px;
+      padding: 20px;
+      background: $bg-color-modal;
+      color: $color-modal;
+      border-radius: 10px;
+      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
+
+      h1 {
+        margin: 0;
+      }
+
+      a {
+        color: $color-timestamp-text;
+      }
+
+      a:hover {
+        color: lighten($color-timestamp-text, 20%);
+      }
+    }
+
+    .app-modal-background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #000;
+      opacity: 0.75;
+      z-index: 100;
+    }
+  }
+}
+
+body.app-modal-open {
+  overflow: hidden;
+}

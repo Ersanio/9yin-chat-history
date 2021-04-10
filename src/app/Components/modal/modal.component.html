@@ -1,0 +1,7 @@
+<div class="app-modal">
+  <div class="app-modal-body">
+    <fa-icon [icon]="faTimesCircle" size="2x" class="close" (click)="close();"></fa-icon>
+    <ng-content></ng-content>
+  </div>
+  <div class="app-modal-background" (click)="close();"></div>
+</div>

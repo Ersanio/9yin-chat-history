@@ -3,5 +3,14 @@
     *ngIf="chatHistory?.chatRecords !== undefined && selectedChat"></fa-icon>
   <fa-icon title="Download all" size="2x" [icon]="faFileDownload" (click)="downloadAll();"
     *ngIf="chatHistory !== undefined"></fa-icon>
-  <fa-icon title="About" size="2x" [icon]="faAbout" (click)="displayAbout();"></fa-icon>
+  <fa-icon title="About" size="2x" [icon]="faAbout" (click)="openModal('about');"></fa-icon>
 </div>
+
+<app-modal id="about">
+  <h1>About</h1>
+  <p>This web application is able to display the Age of Wushu chat logs contained within this folder:</p>
+  <p> <span style="background-color: #333;">Snail Games USA\Age of Wushu\bin\[acc]\[file].xml</span></p>
+  <p>The selected chat log does NOT leave your browser, i.e. there is no server spying on your chatlogs.</p>
+  <p>You can verify this yourself by viewing <a href="https://github.com/Ersanio/9yin-chat-history">the source code over at GitHub</a>, or by opening your browser's developer tools and viewing the network traffic.</p>
+  <p>Made by <a href="https://github.com/Ersanio">Ersanio</a>.</p>
+</app-modal>

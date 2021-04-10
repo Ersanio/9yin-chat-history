@@ -3,7 +3,6 @@ import { FileHandle } from './drag-drop.directive';
 import { ChatHistory } from './Models/chathistory';
 import { ChatmapperService } from './Services/chatmapper.service';
 import { ChatparserService } from './Services/chatparser.service';
-import { DownloadService } from './Services/download.service';
 
 @Component({
   selector: 'app-root',
