@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Base64 decoder specifically tuned towards Age of Wushu's chat logs.
+ */
 export class Base64decoderService {
   private readonly decodeCipher = {
     "0": "A", "1": "B", "5": "C", "6": "D",
@@ -24,7 +28,7 @@ export class Base64decoderService {
   };
 
   /**
-   * Decodes base64 to UTF-8.
+   * Decodes base64 to UTF-8 using the cipher defined above.
    * @param input The base64 string to decode.
    */
   decode(input: string): string {
@@ -36,8 +40,12 @@ export class Base64decoderService {
     return this.b64DecodeUnicode(input);
   }
 
-  // From https://stackoverflow.com/a/30106551
-  // Solves the problem where text is decoded as ASCII instead of UTF-8
+  /**
+   * Decodes a base64 string to UTF-8.
+   * From https://stackoverflow.com/a/30106551. Solves the problem where text is decoded as ASCII instead of UTF-8
+   * @param input The base64 string.
+   * @returns UTF-8 string.
+   */
   private b64DecodeUnicode(input: string): string {
     return decodeURIComponent(atob(input).split('').map((c) => {
       return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
