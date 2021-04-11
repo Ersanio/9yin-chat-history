@@ -21,9 +21,9 @@ export class AppComponent {
   ngOnInit(): void {
   }
 
-  async onFilesDropped(files: FileHandle[]): Promise<void> {
-    const xmlHistory = await this.chatParser.parseXmlChatLog(files[0]);
-    this.chatHistory = this.chatMapper.AnyToChat(xmlHistory, files[0].file.name);
+  async onFileDropped(file: File): Promise<void> {
+    const xmlHistory = await this.chatParser.parseXmlChatLog(file);
+    this.chatHistory = this.chatMapper.AnyToChat(xmlHistory, file.name);
   }
 
   onSelectedChatChange(name: string) {

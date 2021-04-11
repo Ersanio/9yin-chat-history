@@ -1,7 +1,7 @@
 <div class="viewport">
   <div class="window">
     <app-menubar [chatHistory]="chatHistory" [selectedChat]="selectedChat"></app-menubar>
-    <app-drag-drop (files)="onFilesDropped($event)"></app-drag-drop>
+    <app-drag-drop (file)="onFileDropped($event)"></app-drag-drop>
     <ng-container *ngIf="chatHistory !== undefined">
       <div class="flex">
         <div class="name-list">

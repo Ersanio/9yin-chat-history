@@ -7,7 +7,7 @@ var parser = require('fast-xml-parser');
   providedIn: 'root'
 })
 export class ChatparserService {
-  async parseXmlChatLog(fileHandle: FileHandle): Promise<any> {
+  async parseXmlChatLog(file: File): Promise<any> {
 
     var options = {
       attributeNamePrefix: "",
@@ -17,7 +17,7 @@ export class ChatparserService {
       trimValues: true,
     };
 
-    const text = await fileHandle.file.text();
+    const text = await file.text();
     return parser.parse(text, options);
   }
 }

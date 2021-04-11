@@ -27,7 +27,7 @@ div.chat-message {
 }
 
 div.chat-message:hover {
-  background-color: $bg-color-chat-message-hover;
+  background-color: darken($bg-color-chat-message, 2%);
 }
 
 div.chat-row {

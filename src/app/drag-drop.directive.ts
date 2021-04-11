@@ -15,26 +15,26 @@ export class DragDropDirective {
 
   @Output() files: EventEmitter<FileHandle[]> = new EventEmitter();
 
-  @HostBinding("class") private class = "drag-drop";
+  @HostBinding("class") private class = "";
 
   constructor(private sanitizer: DomSanitizer) { }
 
   @HostListener("dragover", ["$event"]) public onDragOver(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.class = "drag-drop over";
+    this.class = "over";
   }
 
   @HostListener("dragleave", ["$event"]) public onDragLeave(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.class = "drag-drop";
+    this.class = "";
   }
 
   @HostListener('drop', ['$event']) public onDrop(evt: DragEvent) {
     evt.preventDefault();
     evt.stopPropagation();
-    this.class = "drag-drop drop";
+    this.class = "drop";
 
     let files: FileHandle[] = [];
     for (let i = 0; i < evt.dataTransfer.files.length; i++) {

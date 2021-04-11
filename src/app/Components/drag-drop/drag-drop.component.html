@@ -1,3 +1,8 @@
-<div appDragDrop *ngIf="isVisible" (files)="onFilesDropped($event)">
-  Drop your file here!
+<div class="container" *ngIf="isVisible">
+  <div class="outer" appDragDrop (files)="onFilesDropped($event)" (click)="file.click();">
+    <div class="inner">
+      Choose a file or drag it here.
+    </div>
+  </div>
 </div>
+<input type="file" accept=".xml" style="display:none;" (change)="onFileSelected($event)" #file>

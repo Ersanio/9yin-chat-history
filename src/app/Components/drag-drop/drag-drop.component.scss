@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+div.container {
+  display: grid;
+  place-items: center;
+
+  div.outer {
+    border: 5px dashed #AAA;
+    margin: 10px;
+    cursor: pointer;
+
+    div.inner {
+      width:400px;
+      height:200px;
+
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  .over {
+    background-color: lighten($bg-color-main-window, 10%);
+  }
+}

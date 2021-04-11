@@ -7,7 +7,7 @@ import { FileHandle } from 'src/app/drag-drop.directive';
   styleUrls: ['./drag-drop.component.scss']
 })
 export class DragDropComponent implements OnInit {
-  @Output() public files = new EventEmitter<FileHandle[]>();
+  @Output() public file = new EventEmitter<File>();
   public isVisible: boolean;
 
   ngOnInit(): void {
@@ -15,7 +15,20 @@ export class DragDropComponent implements OnInit {
   }
 
   async onFilesDropped(files: FileHandle[]): Promise<void> {
-    this.files.emit(files);
-    this.isVisible = !files.length;
+    this.handleFileLoad(files[0].file);
+  }
+
+  onFileSelected(event) {
+    const file : File = event.target.files[0];
+    this.handleFileLoad(file);
+  }
+
+  handleFileLoad(file: File) {
+    if(file.type != "text/xml") {
+      return;
+    }
+
+    this.file.emit(file);
+    this.isVisible = false;
   }
 }
