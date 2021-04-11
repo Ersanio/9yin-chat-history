@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FileHandle } from './drag-drop.directive';
 import { ChatHistory } from './Models/chathistory';
 import { ChatmapperService } from './Services/chatmapper.service';
 import { ChatparserService } from './Services/chatparser.service';
@@ -22,7 +21,19 @@ export class AppComponent {
   }
 
   async onFileDropped(file: File): Promise<void> {
+    if (file.type != "text/xml") {
+      return;
+    }
+
     const xmlHistory = await this.chatParser.parseXmlChatLog(file);
+
+    if (xmlHistory === undefined
+      || xmlHistory.Records === undefined
+      || xmlHistory.Records.Record[0] === undefined
+      || xmlHistory.Records.Record[0].name === undefined) {
+      return;
+    }
+
     this.chatHistory = this.chatMapper.AnyToChat(xmlHistory, file.name);
   }
 

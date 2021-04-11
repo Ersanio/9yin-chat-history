@@ -1,18 +1,20 @@
 @import "../../../variables";
 
+$border-width: 5px;
+$margin: 10px;
+$height: 200px;
+
 div.container {
   display: grid;
   place-items: center;
-
   div.outer {
-    border: 5px dashed #AAA;
-    margin: 10px;
+    width: calc(100% - calc(#{$border-width} * 2) - calc(#{$margin} * 2));
+    border: $border-width dashed #AAA;
+    margin: $margin;
     cursor: pointer;
 
     div.inner {
-      width:400px;
-      height:200px;
-
+      height: $height;
       display: grid;
       place-items: center;
     }
