@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChatRecord } from 'src/app/Models/chathistory';
+import { Component, Input } from '@angular/core';
+import { ChatMessage, ChatRecord } from 'src/app/Models/chathistory';
 
 @Component({
   selector: 'app-chat-records',
@@ -7,10 +7,10 @@ import { ChatRecord } from 'src/app/Models/chathistory';
   styleUrls: ['./chat-records.component.scss']
 })
 export class ChatRecordsComponent {
-  @Input() public records : ChatRecord[];
-  @Input() public selectedChat : string;
+  @Input() public records: ChatRecord[];
+  @Input() public selectedChat: string;
 
-  getCurrentRecord() {
+  getCurrentRecord(): ChatMessage[] {
     return this.records.find(x => x.chatName === this.selectedChat)?.chatMessages;
   }
 }

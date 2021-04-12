@@ -9,7 +9,7 @@ export class ChatmapperService {
   constructor(private base64decoder: Base64decoderService) { }
 
   public AnyToChat(xmlInput: any, fileName: string): ChatHistory {
-    var history = new ChatHistory();
+    const history = new ChatHistory();
     history.recordOwner = this.getRecordOwner(fileName);
     history.chatRecords = [];
 
@@ -52,7 +52,9 @@ export class ChatmapperService {
     content = content.replace(new RegExp(/<font .*>(.*)<\/font>/g), '$1'); // completely remove font tags
     content = content.replace(new RegExp(/<br\/>/g), ''); // completely remove br tags
     content = content
-      .replace(new RegExp(/<img src="([a-zA-Z0-9_]*)".*/g), '<img src="assets/emotes/$1.png" />') // emotes with image tags
+      .replace(
+        new RegExp(/<img src="([a-zA-Z0-9_]*)"  valign="bottom"  only="line"\/>/g),
+        '<img src="assets/emotes/$1.png" />') // emotes with image tags
       .replaceAll('_', ''); // quick fix to remove underscore from the file path, Angular can't handle space and underscores in asset path
     // todo: unsatisfying fix, possible impact on performance. Is there a way to support underscores in assets?
 
@@ -62,10 +64,10 @@ export class ChatmapperService {
 
   getRecordOwner(fileName: string): string {
     try {
-      return this.base64decoder.decode(fileName.split(".")[0].split(" ")[0]);
+      return this.base64decoder.decode(fileName.split('.')[0].split(' ')[0]);
     }
     catch {
-      return fileName.split(".")[0];
+      return fileName.split('.')[0];
     }
   }
 }

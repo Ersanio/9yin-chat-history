@@ -14,7 +14,7 @@ export class DragDropComponent {
     this.file.emit(files[0].file);
   }
 
-  onFileSelected(event) {
+  onFileSelected(event): void {
     this.file.emit(event.target.files[0]);
   }
 }

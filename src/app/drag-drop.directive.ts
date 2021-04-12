@@ -4,8 +4,8 @@ import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@ang
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 export interface FileHandle {
-  file: File,
-  url: SafeUrl,
+  file: File;
+  url: SafeUrl;
 }
 
 @Directive({
@@ -15,28 +15,28 @@ export class DragDropDirective {
 
   @Output() files: EventEmitter<FileHandle[]> = new EventEmitter();
 
-  @HostBinding("class") private class = "";
+  @HostBinding('class') private class = '';
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  @HostListener("dragover", ["$event"]) public onDragOver(evt: DragEvent) {
+  @HostListener('dragover', ['$event']) public onDragOver(evt: DragEvent): void {
     evt.preventDefault();
     evt.stopPropagation();
-    this.class = "over";
+    this.class = 'over';
   }
 
-  @HostListener("dragleave", ["$event"]) public onDragLeave(evt: DragEvent) {
+  @HostListener('dragleave', ['$event']) public onDragLeave(evt: DragEvent): void {
     evt.preventDefault();
     evt.stopPropagation();
-    this.class = "";
+    this.class = '';
   }
 
-  @HostListener('drop', ['$event']) public onDrop(evt: DragEvent) {
+  @HostListener('drop', ['$event']) public onDrop(evt: DragEvent): void {
     evt.preventDefault();
     evt.stopPropagation();
-    this.class = "drop";
+    this.class = 'drop';
 
-    let files: FileHandle[] = [];
+    const files: FileHandle[] = [];
     for (let i = 0; i < evt.dataTransfer.files.length; i++) {
       const file = evt.dataTransfer.files[i];
       const url = this.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(file));

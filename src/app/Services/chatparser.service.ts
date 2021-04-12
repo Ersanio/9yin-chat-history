@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { FileHandle } from '../drag-drop.directive';
 
-var parser = require('fast-xml-parser');
+const parser = require('fast-xml-parser');
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +8,8 @@ var parser = require('fast-xml-parser');
 export class ChatparserService {
   async parseXmlChatLog(file: File): Promise<any> {
 
-    var options = {
-      attributeNamePrefix: "",
+    const options = {
+      attributeNamePrefix: '',
       ignoreAttributes: false,
       parseNodeValue: true,
       parseAttributeValue: true,

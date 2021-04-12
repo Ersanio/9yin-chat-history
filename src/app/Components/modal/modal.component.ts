@@ -51,7 +51,7 @@ export class ModalComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('window:keydown.escape', ['$event'])
-  keyEvent(event: KeyboardEvent) {
+  keyEvent(event: KeyboardEvent): void {
     this.close();
   }
 }

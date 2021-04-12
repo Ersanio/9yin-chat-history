@@ -17,11 +17,8 @@ export class AppComponent {
     private chatMapper: ChatmapperService) {
   }
 
-  ngOnInit(): void {
-  }
-
   async onFileDropped(file: File): Promise<void> {
-    if (file.type != "text/xml") {
+    if (file.type !== 'text/xml') {
       return;
     }
 
@@ -37,7 +34,7 @@ export class AppComponent {
     this.chatHistory = this.chatMapper.AnyToChat(xmlHistory, file.name);
   }
 
-  onSelectedChatChange(name: string) {
+  onSelectedChatChange(name: string): void {
     this.selectedChat = name;
   }
 }

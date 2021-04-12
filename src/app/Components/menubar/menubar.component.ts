@@ -18,19 +18,20 @@ export class MenubarComponent {
   @Input() public chatHistory: ChatHistory;
   @Input() public selectedChat: string;
 
-  constructor(private downloadService: DownloadService,
+  constructor(
+    private downloadService: DownloadService,
     private modalService: ModalService) { }
 
-  public downloadAll() {
+  public downloadAll(): void {
     this.downloadService.downloadJson(this.chatHistory, `${this.chatHistory.recordOwner}.json`);
   }
 
-  public downloadCurrent() {
+  public downloadCurrent(): void {
     const selectedChat = this.chatHistory.chatRecords.find(x => x.chatName === this.selectedChat);
     this.downloadService.downloadJson(selectedChat, `${this.chatHistory.recordOwner}_${selectedChat.chatName}.json`);
   }
 
-  public openModal(modalId: string) {
+  public openModal(modalId: string): void {
     this.modalService.open(modalId);
   }
 }
