@@ -26,8 +26,7 @@ export class AppComponent {
 
     if (xmlHistory === undefined
       || xmlHistory.Records === undefined
-      || xmlHistory.Records.Record[0] === undefined
-      || xmlHistory.Records.Record[0].name === undefined) {
+      || xmlHistory.Records.Record === undefined) {
       return;
     }
 
